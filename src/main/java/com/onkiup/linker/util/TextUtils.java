@@ -20,4 +20,17 @@ public interface TextUtils {
     } while (ignoredCharacters.indexOf(character) > -1);
     return from - 1;
   }
+
+  static boolean startsWithGetOrSet(String test) {
+    if (test.length() < 3) {
+      return false;
+    }
+    char gs = Character.toLowerCase(test.charAt(0));
+    char e = Character.toLowerCase(test.charAt(1));
+    char t = Character.toLowerCase(test.charAt(2));
+
+    return (gs == 'g' || gs == 's')
+      && e == 'e'
+      && t == 't';
+  }
 }
